@@ -1,0 +1,11 @@
+node_modules/
+yarn-error.log
+
+# Build directory
+dist/
+# Parcel Cache
+.cache/
+# Packaged Chrome Extension
+*.crx
+*.pem
+*.zip

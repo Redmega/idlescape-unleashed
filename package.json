@@ -1,0 +1,26 @@
+{
+  "name": "idlescape-unleashed",
+  "version": "0.0.1",
+  "description": "Cross Browser extension for Idlescape enabling advanced automation and controls for your account",
+  "main": "dist/index.js",
+  "author": "Redmega",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "jquery": "^3.4.1"
+  },
+  "scripts": {
+    "copy:manifest": "mkdir -p dist && cp src/manifest.json dist/manifest.json",
+    "copy:ico": "mkdir -p dist && cp -r ico dist/",
+    "dev": "yarn copy:manifest && yarn copy:ico && parcel src/content.ts src/background.ts",
+    "build": "NODE_ENV=production rm -rf dist && yarn copy:manifest && yarn copy:ico && parcel build --no-source-maps src/content.ts src/background.ts",
+    "package": "yarn build && cd dist; zip -r - * > ../dist.zip"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.93",
+    "@types/jquery": "^3.3.31",
+    "@types/node": "^13.7.0",
+    "parcel-bundler": "^1.12.4",
+    "typescript": "^3.7.5"
+  }
+}

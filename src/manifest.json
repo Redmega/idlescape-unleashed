@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "Idlescape Unleashed",
+  "author": "Redmega",
+  "version": "0.0.1",
+  "description": "Unlease the power of your Idlescape account with various automations",
+  "icons": {
+    "16": "ico/16.png",
+    "48": "ico/48.png",
+    "128": "ico/128.png"
+  },
+  "permissions": ["contextMenus", "storage"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://idlescape.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
