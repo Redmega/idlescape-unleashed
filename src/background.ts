@@ -1,5 +1,4 @@
 import { IMessage, MessageAction } from "./util/message";
-import { Skill, ProgressSkill } from "./util/selectors";
 import storage from "./util/storage";
 import { Toggle } from "./util/types";
 
@@ -38,43 +37,9 @@ chrome.runtime.onInstalled.addListener(async function(details) {
     type: "checkbox",
     title: "Refresh when Disconnected?",
   });
-
-  /**
-   * Auto Progress
-   * Automatically starts performing the highest zone possible, and watches for the next zone to become available.
-   */
-  await addMenuOption({
-    parentId: "idlescape",
-    id: MessageAction.AutoProgress,
-    title: "Auto Progress",
-  });
-  for (const skillName of Object.keys(ProgressSkill)) {
-    await addMenuOption({
-      id: `${MessageAction.AutoProgress}:${ProgressSkill[skillName]}`,
-      title: skillName,
-      parentId: MessageAction.AutoProgress,
-    });
-  }
 });
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
-  if (info.menuItemId === MessageAction.TestCombatLevel) {
-    chrome.tabs.sendMessage(tab.id, {
-      action: MessageAction.TestCombatLevel,
-    } as IMessage);
-  }
-
-  if (info.parentMenuItemId === MessageAction.AutoProgress) {
-    const skill = (info.menuItemId as string).replace(
-      `${MessageAction.AutoProgress}:`,
-      ""
-    ) as Skill;
-    chrome.tabs.sendMessage(tab.id, {
-      action: MessageAction.AutoProgress,
-      skill,
-    } as IMessage);
-  }
-
   if (info.menuItemId === MessageAction.AutoRefresh) {
     storage.set(MessageAction.AutoRefresh, info.checked ? Toggle.On : Toggle.Off);
     chrome.tabs.sendMessage(tab.id, {
