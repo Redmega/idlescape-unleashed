@@ -43,6 +43,10 @@ export default async function craftMax(item: CraftItem) {
   </button>
   `);
 
+  /**
+   * Because of the way Idlescape handles input change events, simply changing the value and triggering a change event did not work. It kept reverting to the previous value.
+   * As such, we sort of hackily get around that by creating a dummy input with the max value, selecting that text, and utilizing the browser's copy+paste commands
+   */
   $button.click(() => {
     const $selectbox = $(`<input>`)
       .css({
