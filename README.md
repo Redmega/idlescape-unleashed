@@ -16,12 +16,6 @@ Don't you hate it when you end up wasting an entire night of idling because the 
 
 Enabled by default, this setting will detect when you get disconnected and automatically refresh your browser window so it doesn't disrupt your idling
 
-### Auto Progress
-
-_This one is subject to developer approval_
-
-Will pick the highest unlocked zone in a skill and idle on it. When the next level unlocks, it'll automatically idle on the new level.
-
 ## Installing
 
 The extension is not yet out on the chrome web store (@Redmega just needs to register & pay for a developer account).
