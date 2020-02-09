@@ -6,7 +6,7 @@ An as-of-yet unpublished chrome extension to help you get the most of your Idles
 
 ## Usage
 
-You can right click anywhere on your Idlescape game page to access the Idlescape Unleashed menu.
+You can right click anywhere on your Idlescape game page to access the Idlescape Unleashed menu. Right now the only purpose of that menu is to enable or disable Auto Refresh. The features below are all passively applied.
 
 ## Features
 
@@ -15,6 +15,12 @@ You can right click anywhere on your Idlescape game page to access the Idlescape
 Don't you hate it when you end up wasting an entire night of idling because the game got disconnected somehow?
 
 Enabled by default, this setting will detect when you get disconnected and automatically refresh your browser window so it doesn't disrupt your idling
+
+### Max Craft Button
+
+"_I have 347 fish oil and 2395 logs... How many pyre logs can I make?_"
+
+You don't have to do the math anymore! Instead, a handy new "Max" button gets added to the crafting dialog which displays the max amount of that item you can make.
 
 ## Installing
 

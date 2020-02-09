@@ -1,5 +1,6 @@
 import $ from "jquery";
 import { levels, Skill, Status, MiscSkill } from "./selectors";
+import { ms } from "./time";
 
 export const watchLevel = (skill: Skill, goal: number, callback: () => void) => {
   const level = Number($(levels[skill]).text());
@@ -24,4 +25,16 @@ export const dismissNotification = () => {
   if ($(".MuiDialog-root").length) {
     $(".MuiDialog-root .close-dialog-button").trigger("click");
   }
+};
+
+export const waitForElement = async (
+  selector: string,
+  interval: number = 250
+): Promise<JQuery<HTMLElement>> => {
+  let el = $(selector);
+  if (el.length === 0) {
+    await ms(interval);
+    el = await waitForElement(selector);
+  }
+  return el;
 };

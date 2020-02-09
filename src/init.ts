@@ -1,4 +1,5 @@
 import { init as initAutoRefresh } from "./plugins/autorefresh";
+import { init as initCraftMax } from "./plugins/craft-max";
 
 export default async function init() {
   const log = console.log;
@@ -20,4 +21,5 @@ export default async function init() {
    * Initialize plugins which have persistent state
    */
   await initAutoRefresh();
+  await initCraftMax();
 }

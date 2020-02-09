@@ -2,6 +2,7 @@ import { Skill } from "./selectors";
 
 export enum MessageAction {
   AutoRefresh = "refresh",
+  CraftMax = "craft_max",
 }
 
 export interface IMessage {

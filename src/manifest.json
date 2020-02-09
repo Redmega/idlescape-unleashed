@@ -9,7 +9,7 @@
     "48": "ico/48.png",
     "128": "ico/128.png"
   },
-  "permissions": ["contextMenus", "storage"],
+  "permissions": ["contextMenus", "clipboardRead", "clipboardWrite", "storage"],
   "background": {
     "scripts": ["background.js"],
     "persistent": false
